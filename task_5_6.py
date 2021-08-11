@@ -12,7 +12,8 @@ def get_value(s):
     '''Функция извлекает из строки число часов'''
     if s == '-':
         return 0
-    return int(s.split('(')[0])
+    hours = s.split('(')[0]
+    return int(hours) if hours.isdigit() else 0
 
 with open('task_5_6_file.txt') as read_f:
     for s in read_f:

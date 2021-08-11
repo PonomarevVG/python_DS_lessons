@@ -14,4 +14,4 @@ with open('task_5_1_file.txt', 'w') as write_f:
 print('В файл test_file.txt были записаны следующие строки:')
 with open('task_5_1_file.txt') as read_f:
     for s in read_f:
-        print(s[0:len(s)-1])
+        print(s.strip('\n'))

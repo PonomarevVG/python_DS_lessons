@@ -19,11 +19,11 @@ companies_count = 0
 companies_dict = dict()
 with open('task_5_7_file.txt') as read_f:
     for s in read_f:
-        if s[len(s)-1] == '\n':
-            s = s[0:len(s)-1]
-        name, form, revenue, cost = s.split(' ')
-        profit = float(revenue) - float(cost)
-        companies_dict.setdefault(name, profit)
+        name, form, revenue, cost = s.strip('\n').split()
+        revenue = float(revenue) if revenue.replace('.', '').isdigit() else 0.0
+        cost = float(cost) if cost.replace('.', '').isdigit() else 0.0
+        profit = revenue - cost
+        companies_dict[name] = profit
         if profit > 0:
             averange_profit += profit
         companies_count += 1

@@ -7,7 +7,6 @@ with open('task_5_2_file.txt') as read_f:
     print(f'В файл task_5_2_file.txt число строк = {len(lines)} ')
     i = 1
     for s in lines:
-        if i != len(lines):
-            s = s[0:len(s) - 1]
+        s = s.strip('\n')
         print(f'{i}: В строке: "{s}" число слов = {len(s.split(" "))}')
         i += 1

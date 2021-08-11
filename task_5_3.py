@@ -9,11 +9,8 @@ lines_count = 0
 print('Список сотрудников с окладами < 20 000 руб.')
 with open('task_5_3_file.txt') as read_f:
     for s in read_f:
-        if s[len(s)-1] == '\n':
-            s = s[0:len(s)-1]
-        words = s.split(' ')
-        surname = words[0]
-        salary = float(words[1])
+        surname, salary = s.strip('\n').split()
+        salary = float(salary) if salary.replace('.', '').isdigit() else 0.0
         averange_salary += salary
         lines_count += 1
         if salary < 20000.0:

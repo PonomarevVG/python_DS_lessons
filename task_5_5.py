@@ -11,14 +11,12 @@ with open('task_5_5_file.txt', 'w') as write_f:
         if s == '':
             break
         line += s + ' '
-    if len(line) > 0:
-        line = line[0:len(line)-1]
-    print(line, file=write_f)
+    print(line.strip('\n'), file=write_f)
 
 sum = 0.0
 with open('task_5_5_file.txt') as read_f:
     values = read_f.readline().split(' ')
 
 for value in values:
-    sum += float(value)
+    sum += float(value) if value.replace('.', '').isdigit() else 0.0
 print(f'Сумма чисел в файле = {sum}')
